@@ -1,8 +1,24 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Search, Settings, Bell, Menu } from "lucide-react";
 
 export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
+  const pathname = usePathname();
+
+  const getTitle = (path: string) => {
+    switch (path) {
+      case "/dashboard":
+        return "Overview";
+      case "/loans":
+        return "Loans";
+      case "/settings":
+        return "Settings";
+      default:
+        return "Overview";
+    }
+  };
+
   return (
     <header className="bg-white border-b lg:h-20 flex flex-col lg:flex-row lg:items-center justify-center lg:justify-between px-5 lg:px-10 py-4 lg:py-0 gap-4 lg:gap-0">
       <div className="flex items-center justify-between w-full lg:w-auto relative">
@@ -11,7 +27,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
         </button>
 
         <h2 className="text-xl lg:text-2xl font-semibold text-[#343C6A] lg:static absolute left-1/2 -translate-x-1/2 lg:translate-x-0">
-          Overview
+          {getTitle(pathname)}
         </h2>
 
         <div className="lg:hidden w-9 h-9 rounded-full overflow-hidden">
@@ -23,10 +39,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
         </div>
       </div>
 
-      {/* BARIS BAWAH (Mobile) / KANAN (Desktop) */}
       <div className="flex items-center gap-4 w-full lg:w-auto">
-        
-        {/* Search Bar: Full width di mobile */}
         <div className="relative flex-1 lg:flex-none">
           <Search
             size={18}
@@ -39,12 +52,11 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
           />
         </div>
 
-        {/* Desktop Buttons & Avatar (Hidden on Mobile) */}
         <div className="hidden lg:flex items-center gap-4">
           <button className="w-11 h-11 rounded-full bg-[#F5F7FA] flex items-center justify-center text-[#718EBF] hover:bg-gray-100 transition">
             <Settings size={20} />
           </button>
-          <button className="w-11 h-11 rounded-full bg-[#F5F7FA] flex items-center justify-center text-[#FE5C73] hover:bg-gray-100 transition">
+          <button className="w-11 h-11 rounded-full bg-[#F5F7FA] flex items-center justify-center text-[#396AFF] hover:bg-gray-100 transition">
             <Bell size={20} />
           </button>
           <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-100 ml-2 shadow-sm">

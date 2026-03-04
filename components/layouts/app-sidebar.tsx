@@ -11,7 +11,7 @@ import {
   Wrench, 
   Award, 
   Settings, 
-  BadgeDollarSign, X
+  BadgeDollarSign
 } from "lucide-react";
 
 const menuItems = [
@@ -31,7 +31,6 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean, onClose:
 
   return (
     <>
-      {/* Backdrop */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/40 z-[60] lg:hidden" onClick={onClose} />
       )}
@@ -39,10 +38,8 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean, onClose:
       <aside className={`fixed lg:static inset-y-0 left-0 z-[70] w-[250px] bg-white border-r transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
         
-        {/* Logo Section */}
         <div className="h-24 flex items-center px-8">
           <div className="flex items-center gap-3">
-            {/* Ikon Kartu Sesuai Gambar */}
             <div className="flex flex-col relative w-8 h-6">
                <div className="absolute top-0 left-0 w-7 h-5 border-2 border-[#396AFF] rounded-[4px]" />
                <div className="absolute bottom-0 right-0 w-7 h-5 bg-[#396AFF] rounded-[4px] border-2 border-[#396AFF]" />
@@ -51,7 +48,6 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean, onClose:
           </div>
         </div>
 
-        {/* Menu */}
         <nav className="mt-2 flex flex-col">
           {menuItems.map((item) => {
             const Icon = item.icon;
