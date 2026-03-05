@@ -10,6 +10,10 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
     switch (path) {
       case "/dashboard":
         return "Overview";
+      case "/transactions":
+        return "Transactions";
+      case "/accounts":
+        return "Accounts";
       case "/loans":
         return "Loans";
       case "/settings":
