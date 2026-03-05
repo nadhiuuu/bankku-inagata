@@ -58,7 +58,7 @@ export default function EditProfileTab() {
       <div className="relative mx-auto lg:mx-0 shrink-0 mt-2">
         <div className="w-24 h-24 md:w-[130px] md:h-[130px] rounded-full overflow-hidden border border-gray-100">
           <img
-            src="https://i.pravatar.cc/150?u=charlene"
+            src="https://i.pravatar.cc/150?u=charlene "
             alt="Profile"
             className="w-full h-full object-cover"
           />

@@ -15,7 +15,7 @@ export default function RecentTransactions() {
               <p className="text-xs text-[#718EBF]">28 January 2021</p>
             </div>
           </div>
-          <p className="text-sm md:text-base font-bold text-[#FF4B4A] shrink-0">-$850</p>
+          <p className="text-sm md:text-base font-semibold text-[#FF4B4A] shrink-0">-$850</p>
         </div>
 
         <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export default function RecentTransactions() {
               <p className="text-xs text-[#718EBF]">25 January 2021</p>
             </div>
           </div>
-          <p className="text-sm md:text-base font-bold text-[#41D4A8] shrink-0">+$2,500</p>
+          <p className="text-sm md:text-base font-semibold text-[#41D4A8] shrink-0">+$2,500</p>
         </div>
 
         <div className="flex items-center justify-between">
@@ -41,7 +41,7 @@ export default function RecentTransactions() {
               <p className="text-xs text-[#718EBF]">21 January 2021</p>
             </div>
           </div>
-          <p className="text-sm md:text-base font-bold text-[#41D4A8] shrink-0">+$5,400</p>
+          <p className="text-sm md:text-base font-semibold text-[#41D4A8] shrink-0">+$5,400</p>
         </div>
       </div>
     </div>

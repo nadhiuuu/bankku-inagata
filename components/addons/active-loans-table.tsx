@@ -25,7 +25,7 @@ const loansData = [
 
 export default function ActiveLoansTable() {
   return (
-    <div className="mt-8 space-y-4">
+    <div className="mt-2 space-y-4">
       <h2 className="text-xl font-semibold text-[#343C6A] px-1">Active Loans Overview</h2>
       
       <div className="bg-white rounded-[25px] overflow-hidden shadow-sm border border-gray-50">

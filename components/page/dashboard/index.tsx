@@ -14,7 +14,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-2">
           <h2 className="text-xl md:text-xl font-semibold text-[#343C6A]">Weekly Activity</h2>
           <div className="bg-white rounded-[25px] p-4 md:p-2 shadow-sm border border-gray-50 h-[300px] md:h-[350px]">
             <WeeklyActivityChart />

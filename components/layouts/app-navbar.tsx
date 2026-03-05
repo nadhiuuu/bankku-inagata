@@ -32,7 +32,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
 
         <div className="lg:hidden w-9 h-9 rounded-full overflow-hidden">
           <img 
-            src="https://i.pravatar.cc/150?u=bankku" 
+            src="https://i.pravatar.cc/150?u=charlene" 
             alt="User"
             className="w-full h-full object-cover"
           />
@@ -61,7 +61,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
           </button>
           <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-100 ml-2 shadow-sm">
             <img 
-              src="https://i.pravatar.cc/150?u=bankku" 
+              src="https://i.pravatar.cc/150?u=charlene" 
               alt="User Desktop"
               className="w-full h-full object-cover"
             />

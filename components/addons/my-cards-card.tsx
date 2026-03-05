@@ -17,9 +17,7 @@ export default function MyCards() {
                 <p className="text-[11px] text-white/70">Balance</p>
                 <h3 className="text-lg md:text-xl font-semibold text-white mt-1">$5,756</h3>
               </div>
-              <div className="w-8 h-8 md:w-9 md:h-9 bg-white/20 rounded-lg flex items-center justify-center">
-                 <CreditCard className="text-white" size={20} strokeWidth={1.5} />
-              </div>
+              <img src="/image/chip-card-white.png" alt="Chip Card White" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
             </div>
             <div className="flex gap-10 md:gap-14 mt-6 md:mt-8">
               <div>
@@ -48,9 +46,7 @@ export default function MyCards() {
                 <p className="text-[11px] text-[#718EBF]">Balance</p>
                 <h3 className="text-lg md:text-xl font-semibold text-[#343C6A] mt-1">$5,756</h3>
               </div>
-              <div className="w-8 h-8 md:w-9 md:h-9 bg-gray-100 rounded-lg flex items-center justify-center">
-                 <CreditCard className="text-gray-400" size={20} strokeWidth={1.5} />
-              </div>
+              <img src="/image/chip-card-black.png" alt="Chip Card Black" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
             </div>
             <div className="flex gap-10 md:gap-14 mt-6 md:mt-8">
               <div>

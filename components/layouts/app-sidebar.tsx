@@ -39,10 +39,9 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean, onClose:
         ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
         
         <div className="h-24 flex items-center px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex flex-col relative w-8 h-6">
-               <div className="absolute top-0 left-0 w-7 h-5 border-2 border-[#396AFF] rounded-[4px]" />
-               <div className="absolute bottom-0 right-0 w-7 h-5 bg-[#396AFF] rounded-[4px] border-2 border-[#396AFF]" />
+          <div className="flex items-center gap-2">
+            <div className="flex flex-col relative w-8 h-8">
+               <img src="/image/logo-bankku.png" alt="Logo" className="absolute bottom-0 right-0 w-9 h-9"/>
             </div>
             <h1 className="text-[22px] font-bold text-[#343C6A] tracking-tight">Bankku.</h1>
           </div>

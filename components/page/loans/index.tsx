@@ -34,11 +34,11 @@ const loanStats = [
 export default function LoansPage() {
   return (
     <div className="max-w-7xl mx-auto px-2 py-2">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-3 pb-2 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {loanStats.map((item, index) => (
           <div
             key={index}
-            className="bg-white rounded-[20px] p-4 flex items-center gap-3 shadow-sm border border-gray-50 transition-all hover:shadow-md"
+            className="w-[240px] shrink-0 lg:w-auto snap-start bg-white rounded-[20px] p-4 flex items-center gap-3 shadow-sm border border-gray-50 transition-all hover:shadow-md"
           >
             <div className={`w-11 h-11 md:w-14 md:h-14 rounded-full ${item.bgColor} flex items-center justify-center shrink-0`}>
               {item.icon}
@@ -55,7 +55,9 @@ export default function LoansPage() {
           </div>
         ))}
       </div>
-      <ActiveLoansTable />
+      <div className="mt-2">
+        <ActiveLoansTable />
+      </div>
     </div>
   );
 }
