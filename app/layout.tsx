@@ -15,6 +15,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Bankku - Banking Made Easy</title>
+        <link rel="icon" href="/image/favicon.png" />
+      </head>
       <body className="bg-[#F5F7FA]">
         <div className="flex h-screen overflow-hidden bg-[#F5F7FA]">
           <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
