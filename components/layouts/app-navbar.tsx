@@ -14,6 +14,10 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
         return "Transactions";
       case "/accounts":
         return "Accounts";
+      case "/investments":
+        return "Investments"
+      case "/credit-cards":
+        return "Credit Cards";
       case "/loans":
         return "Loans";
       case "/settings":
