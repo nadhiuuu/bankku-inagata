@@ -22,7 +22,7 @@ const menuItems = [
   { name: "Credit Cards", href: "/credit-cards", icon: CreditCard },
   { name: "Loans", href: "/loans", icon: BadgeDollarSign },
   { name: "Services", href: "/services", icon: Wrench },
-  { name: "My Privileges", href: "/privileges", icon: Award },
+  { name: "My Privileges", href: "/my-privileges", icon: Award },
   { name: "Setting", href: "/settings", icon: Settings },
 ];
 

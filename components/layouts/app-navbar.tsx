@@ -20,6 +20,10 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
         return "Credit Cards";
       case "/loans":
         return "Loans";
+      case "/services":
+        return "Services";
+      case "/my-privileges":
+        return "My Privileges";
       case "/settings":
         return "Settings";
       default:
