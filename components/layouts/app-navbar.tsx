@@ -3,11 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Search, Bell, Settings, User, LogOut, Shield, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-type AppNavbarProps = {
-  onMenuClick: () => void;
-};
-
-export default function AppNavbar({ onMenuClick }: AppNavbarProps) {
+export default function AppNavbar() {
   const [activeMenu, setActiveMenu] = useState<"notifications" | "profile" | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +65,7 @@ export default function AppNavbar({ onMenuClick }: AppNavbarProps) {
                     <p className="text-sm text-[#343C6A] font-medium leading-snug">Transfer of $480.00 from Satya was successful.</p>
                   </div>
                 </div>
+                
               </div>
             )}
           </div>
