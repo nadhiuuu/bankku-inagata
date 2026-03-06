@@ -1,21 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from "recharts";
 
 interface ExpenseDataItem {
   name: string;
   value: number;
   color: string;
-}
-
-interface LabelProps {
-  cx: number;
-  cy: number;
-  midAngle: number;
-  innerRadius: number;
-  outerRadius: number;
-  percent: number;
-  payload: ExpenseDataItem;
 }
 
 const expenseData: ExpenseDataItem[] = [
@@ -27,8 +17,28 @@ const expenseData: ExpenseDataItem[] = [
 
 const RADIAN = Math.PI / 180;
 
+const renderActiveShape = (props: any) => {
+  const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+
+  return (
+    <g>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius + 6}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+        style={{ filter: "drop-shadow(0px 4px 6px rgba(0,0,0,0.15))", cursor: 'pointer', outline: 'none' }}
+      />
+    </g>
+  );
+};
+
 export default function ExpenseStatistics() {
   const [isMobile, setIsMobile] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -37,10 +47,11 @@ export default function ExpenseStatistics() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const renderCustomizedLabel = (props: any) => {
-    const { cx, cy, midAngle, innerRadius, outerRadius, percent, payload } = props as LabelProps;
-    if (!payload) return null;
+  const onPieEnter = (_: any, index: number) => setActiveIndex(index);
+  const onPieLeave = () => setActiveIndex(null);
 
+  const renderCustomizedLabel = (props: any) => {
+    const { cx, cy, midAngle, innerRadius, outerRadius, percent, payload } = props;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.55;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -52,22 +63,12 @@ export default function ExpenseStatistics() {
         fill="white"
         textAnchor="middle"
         dominantBaseline="central"
-        className="font-bold select-none"
+        className="pointer-events-none select-none"
       >
-        <tspan 
-          x={x} 
-          dy="-0.4em" 
-          fontSize={isMobile ? "11" : "13"} 
-          fontWeight="700"
-        >
+        <tspan x={x} dy="-0.4em" fontSize={isMobile ? "11" : "13"} fontWeight="700">
           {`${(percent * 100).toFixed(0)}%`}
         </tspan>
-        <tspan 
-          x={x} 
-          dy="1.2em" 
-          fontSize={isMobile ? "8" : "10"}
-          fontWeight="500"
-        >
+        <tspan x={x} dy="1.2em" fontSize={isMobile ? "8" : "10"} fontWeight="500">
           {payload.name}
         </tspan>
       </text>
@@ -75,10 +76,12 @@ export default function ExpenseStatistics() {
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-2 md:p-4">
+    <div className="w-full h-full flex items-center justify-center p-2 md:p-4 outline-none">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
+        <PieChart style={{ outline: 'none' }}>
           <Pie
+            activeIndex={activeIndex as number}
+            activeShape={renderActiveShape}
             data={expenseData}
             cx="50%"
             cy="50%"
@@ -87,20 +90,29 @@ export default function ExpenseStatistics() {
             outerRadius={isMobile ? "75%" : "85%"}
             dataKey="value"
             stroke="#ffffff"
-            strokeWidth={isMobile ? 4 : 8} 
+            strokeWidth={isMobile ? 4 : 8}
             startAngle={90}
             endAngle={450}
+            onMouseEnter={onPieEnter}
+            onMouseLeave={onPieLeave}
+            onClick={onPieEnter}
+            style={{ outline: 'none' }}
           >
             {expenseData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
+              <Cell 
+                key={`cell-${index}`} 
+                fill={entry.color} 
+                style={{ outline: 'none', transition: 'all 0.2s ease-out' }} 
+              />
             ))}
           </Pie>
           <Tooltip
+            cursor={{ fill: 'transparent' }}
             contentStyle={{
               borderRadius: "12px",
               border: "none",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-              fontSize: "12px"
+              boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)",
+              fontSize: "12px",
             }}
           />
         </PieChart>
